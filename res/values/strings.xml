@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Chemistry</string>
+    <string name="firstpage">CHEMISTRY REGENTS REVIEW QUESTIONS</string>
+    <string name="choosetopic">CHOOSE YOUR TOPIC</string>
+    <string name="topicatom">ATOM</string>
+    <string name="atomquestions">ATOM QUESTIONS</string>
+    <string name="action_settings">Settings</string>
+    <string name="multi_choice">Multiple Choice</string>
+    <string name="short_answers">Short Answers</string>
+    <string name="points">Points</string>
+    <string name="full_regents">Full Regents</string>
+    <string name="atoms">The Atom</string>
+    <string name="colligative">Colligative Properties</string>
+    <string name="acid">Acid Base</string>
+    <string name="organic">Organic Chem</string>
+    <string name="copyright">&#169;2013 STEM-SCL</string>
+    <string name="submit">Submit Answer</string>
+
+    <string-array name="atomTitleQuestion">
+        <item>Question 1</item>
+        <item>Question 2</item>
+    </string-array>
+    
+    <string-array name="atomQuestion">
+        <item>What information is necessary to determine the atomic mass of the element Chlorine?</item>
+        <item>An atom of aluminum in the ground state and an atom of gallium in the ground state have the same </item>
+    </string-array>
+    
+    <string-array name="atomAnswer">
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    
+    <string-array name="atomExplaination">
+        <item>The atomic mass of an atom, in this case Chlorine, is calculated by multiplying the masses of each chlorine isotope by its percent abundance and then dividing by 100. This gives you the weighted atomic mass, which number is found on the periodic table.</item>
+        <item>Aluminum and Gallium are both found in group 13, which contains 3 valence electrons, therefore they both have 3 valence electrons on their outer shell.</item>
+    </string-array>
+    <string-array name="atomChoiceA">
+        <item>a.  the atomic mass of each artificially produced isotope of chlorine, only</item>
+        <item>a.  mass</item>
+    </string-array>
+
+    <string-array name="atomChoiceB">
+        <item>b.  the relative abundance of each naturally occurring isotope of chlorine, only</item>
+        <item>b.  electronegativity</item>
+    </string-array>
+    
+    <string-array name="atomChoiceC">
+        <item>c.  the atomic mass and the relative abundance of each naturally occurring isotope of chlorine</item>
+        <item>c.  total number of protons</item>
+    </string-array>
+    
+    <string-array name="atomChoiceD">
+        <item>d.  the atomic mass and the relative abundance of each naturally occurring and artificially produced isotope of chlorine</item>
+        <item>d.  total number of valence electrons</item>
+    </string-array>
+   
+    <string-array name="collTitleQuestion">
+        <item>Question 1</item>
+    </string-array>
+    
+    <string-array name="collQuestion">
+        <item>The relatively high boiling point of water is due to having</item>
+    </string-array>
+
+     <string-array name="collAnswer">
+        <item>0</item>
+    </string-array>
+    
+	<string-array name="collExplaination">
+        <item>Hydrogen bonding is an intermolecular interaction that plays a role in causing water to have a high boiling point and a low freezing point due to the attraction between the positively charged hydrogen atoms and the negatively charged oxygen atoms.</item>
+    </string-array>     
+    
+	<string-array name="collChoiceA">
+        <item>a.	hydrogen bonding</item>
+    </string-array>
+     
+	<string-array name="collChoiceB">
+        <item>b.	metallic bonding</item>
+    </string-array>
+    
+	<string-array name="collChoiceC">
+        <item>c. 	nonpolar covalent bonding</item>
+    </string-array>
+    
+	<string-array name="collChoiceD">
+        <item>d.	strong ionic bonding</item>
+    </string-array>			
+    
+    <string-array name="acidTitleQuestion">
+        <item>Question 1</item>
+    </string-array>
+    
+    <string-array name="acidQuestion">
+        <item>Which substance is always a product when an Arrhenius acid in an aqueous solution reacts with an Arrhenius base in an aqueous solution?</item>
+    </string-array>
+    
+    <string-array name="acidAnswer">
+        <item>1</item>
+    </string-array>
+    
+    <string-array name="acidExplaination">
+        <item>An acid and a base undergo the process of neutralization, therefore always producing water (H2O)</item>
+    </string-array>
+
+    <string-array name="acidChoiceA">
+        <item>a. HBr</item>
+    </string-array>
+    
+    <string-array name="acidChoiceB">
+        <item>b. H2O</item>
+    </string-array>
+    
+    <string-array name="acidChoiceC">
+        <item>c. KBr</item>
+    </string-array>
+    
+    <string-array name="acidChoiceD">
+        <item>d. KOH</item>
+    </string-array>    
+
+    
+    <string-array name="orgTitleQuestion">
+        <item>Question 1</item>
+    </string-array>
+    
+    <string-array name="orgQuestion">
+        <item>What is the meaning of...organic chem?</item>
+    </string-array>
+    
+    <string-array name="orgAnswer">
+        <item>1</item>
+    </string-array>
+    
+    <string-array name="orgExplaination">
+        <item>Ethanol is an alcohol and dimethyl ether is an ether. </item>
+    </string-array>
+
+    <string-array name="orgChoiceA">
+        <item>a.	functional groups</item>
+    </string-array>
+    
+    <string-array name="orgChoiceB">
+        <item>b.	molecular masses</item>
+    </string-array>
+    
+    <string-array name="orgChoiceC">
+        <item>c.	number of covalent bonds</item>
+    </string-array>
+    
+    <string-array name="orgChoiceD">
+        <item>d.	percent composition by mass</item>
+    </string-array>    
+
+</resources>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.chemistry"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/firstpage"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.chemistry.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.chemistry.TopicSelectionPage"
+            android:label="@string/choosetopic" >
+            <intent-filter>
+                <action android:name="com.example.chemistry.Topics" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.chemistry.QuestionList"
+            android:label="@string/choosetopic" >
+            <intent-filter>
+                <action android:name="com.example.chemistry.MultiChoiceAtom" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.chemistry.QuestionPage"
+            android:label="@string/choosetopic" >
+            <intent-filter>
+                <action android:name="com.example.chemistry.QuestionsAtom" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
