@@ -1,3 +1,14 @@
+/************************************************************************
+ *   Copyright 2013 Derek Li, Michael Ang
+ *
+ *   This file is part of The Jesse Hill Study Guide (TJHSG).
+ *
+ *   QuizApp is free software created by Seidenberg Creative Laboratory 
+ *   for non-commercial use.
+ *   
+ *   Github account ///////
+ ************************************************************************/
+
 package com.example.chemistry;
 
 import java.util.ArrayList;
@@ -9,45 +20,38 @@ import android.os.Parcelable;
 public class Topic implements Parcelable {
 
 	private List<Question> question = new ArrayList<Question>();
-	private int topicId = 0;
-	private String topic = null;
+	private int score = 0;
 
 	public List<Question> getQuestion() {
 		return question;
 	}
 
-	public int getTopicId() {
-		return topicId;
+	public void incScore() {
+		this.score++;
 	}
 
-	public String getTopic() {
-		return topic;
+	public int getScore() {
+		return score;
 	}
 
 	public void setQuestion(List<Question> question) {
 		this.question = question;
 	}
 
-	public void setTopicId(int topicId) {
-		this.topicId = topicId;
-	}
-
-	public void setTopic(String topic) {
-		this.topic = topic;
+	public void setScore(int score) {
+		this.score = score;
 	}
 
 	Topic() {
-		// initialization
 		question = new ArrayList<Question>();
 	}
-	
-	public Topic(List<Question> question){
+
+	public Topic(List<Question> question) {
 		this.question = question;
 	}
 
 	public Topic(Parcel in) {
-		topicId = in.readInt();
-		topic = in.readString();
+		score = in.readInt();
 		in.readTypedList(question, Question.CREATOR);
 	}
 
@@ -58,8 +62,7 @@ public class Topic implements Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel outParcel, int flags) {
-		outParcel.writeInt(topicId);
-		outParcel.writeString(topic);
+		outParcel.writeInt(score);
 		outParcel.writeTypedList(question);
 	}
 
@@ -77,75 +80,3 @@ public class Topic implements Parcelable {
 	};
 
 }
-// public void setTopic(String topic) {
-// this.topic = topic;
-// }
-//
-// public void setTopicId(int topicId) {
-// this.topicId = topicId;
-// }
-//
-// public void setQuestion(List<Question> question) {
-// this.question = question;
-// }
-//
-// public String getTopic() {
-// return topic;
-// }
-//
-// public int getTopicId() {
-// return topicId;
-// }
-//
-// public List<Question> getQuestion() {
-// return question;
-// }
-//
-// public static Parcelable.Creator<Topic> getCreator() {
-// return CREATOR;
-// }
-//
-// public Topic() {
-// question = new ArrayList<Question>();
-// }
-//
-// public Topic(Parcel in) {
-// this();
-// readFromParcel(in);
-// }
-//
-// @Override
-// public void writeToParcel(Parcel dest, int flags) {
-// dest.writeString(topic);
-// dest.writeInt(topicId);
-// dest.writeList(question);
-// }
-//
-// public static final Parcelable.Creator<Topic> CREATOR = new
-// Parcelable.Creator<Topic>() {
-//
-// public Topic createFromParcel(Parcel source) {
-// return new Topic(source);
-// }
-//
-// public Topic[] newArray(int size) {
-// return new Topic[size];
-// }
-//
-// };
-//
-// private void readFromParcel(Parcel in) {
-// this.topic = in.readString();
-// this.topicId = in.readInt();
-// in.readTypedList(question, Question.CREATOR); /* NULLPOINTER HERE */
-// }
-//
-// @Override
-// public int describeContents() {
-// // TODO Auto-generated method stub
-// return 0;
-// }
-//
-//
-//
-// }
