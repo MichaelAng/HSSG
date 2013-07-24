@@ -6,7 +6,7 @@
  *   QuizApp is free software created by Seidenberg Creative Laboratory 
  *   for non-commercial use.
  *   
- *   Github account ///////
+ *   Github account: https://github.com/MichaelAng/TJHSG
  ************************************************************************/
 package com.example.chemistry;
 
@@ -21,9 +21,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -54,7 +56,7 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 	File file = null;
 	File path = null;
 	BufferedReader reader;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -125,6 +127,9 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 					.setCancelable(false).setNegativeButton("OK", null).show();
 
 		} else if (selectedAnswer == Integer.parseInt(answer)) {
+			//function  Answer is correct
+			//Inform user how many they got right
+			
 			new AlertDialog.Builder(this)
 					.setTitle("CORRECT")
 					.setMessage("Your selection was correct!")
@@ -137,20 +142,16 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 									if (position < topic.getQuestion().size()) {
 										setValueId();
 									} else {
-										String scoreLine = topic.getQuestion()
-												.get(0).getTopic()
-												+ "@"
-												+ topic.getScore()
-												+ "@"
-												+ topic.getQuestion().size();
-										String mydate = java.text.DateFormat
-												.getDateTimeInstance().format(
-														Calendar.getInstance()
-																.getTime());
-										writeScore(scoreLine + "@" + mydate);
+										
+										recordScore();
+										showScore();
+										
 										startActivity(new Intent(QuestionPage.this, TopicPage.class));
 									}
 								}
+
+
+
 							}).show();
 		} else {
 			new AlertDialog.Builder(this)
@@ -164,17 +165,9 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 									if (position < topic.getQuestion().size()) {
 										setValueId();
 									} else {
-										String scoreLine = topic.getQuestion()
-												.get(0).getTopic()
-												+ "@"
-												+ topic.getScore()
-												+ "@"
-												+ topic.getQuestion().size();
-										String mydate = java.text.DateFormat
-												.getDateTimeInstance().format(
-														Calendar.getInstance()
-																.getTime());
-										writeScore(scoreLine + "@" + mydate);
+										recordScore();									
+										showScore();
+										
 										startActivity(new Intent(QuestionPage.this, TopicPage.class));
 									}
 								}
@@ -182,6 +175,26 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 		}
 	}
 
+	public void recordScore() {
+		String scoreLine = topic.getQuestion()
+				.get(0).getTopic()
+				+ "@"
+				+ topic.getScore()
+				+ "@"
+				+ topic.getQuestion().size();
+		String mydate = java.text.DateFormat
+				.getDateTimeInstance().format(
+						Calendar.getInstance()
+								.getTime());
+		writeScore(scoreLine + "@" + mydate);
+	}
+	
+	public void showScore() {
+		Toast toast = Toast.makeText(getApplicationContext(),
+				   "You have completed the quiz with a score of " + ((double)topic.getScore()/topic.getQuestion().size() * 100 + "%"), Toast.LENGTH_LONG);
+				toast.setGravity(Gravity.CENTER, 0, 0);
+				toast.show(); 
+	}
 	public void writeScore(String sBody) {
 
 		try {

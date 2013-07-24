@@ -12,17 +12,22 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/firstpage"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.chemistry.MainPage"
-            android:label="@string/app_name" >
+            android:name="com.example.chemistry.SplashPage"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Dialog" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.chemistry.MainPage"
+            android:label="@string/app_name" >
         </activity>
         <activity
             android:name="com.example.chemistry.TopicPage"
@@ -39,6 +44,16 @@
         <activity
             android:name="com.example.chemistry.ScorePage"
             android:label="@string/score" >
+        </activity>
+        <activity
+            android:name="com.example.chemistry.AboutPage"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.example.chemistry.Prefs"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Dialog" >
         </activity>
     </application>
 

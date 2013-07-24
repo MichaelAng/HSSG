@@ -6,7 +6,7 @@
  *   QuizApp is free software created by Seidenberg Creative Laboratory 
  *   for non-commercial use.
  *   
- *   Github account ///////
+ *   Github account: https://github.com/MichaelAng/TJHSG
  ************************************************************************/
 
 package com.example.chemistry;
@@ -20,6 +20,7 @@ import java.util.List;
 
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -43,11 +44,15 @@ public class TopicPage extends ListActivity {
 	StringBuilder text;
 	BufferedReader reader;
 	String[] t;
+	
+	Typeface type;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		
+		type = Typeface.createFromAsset(getAssets(),"starjout.ttf"); 
+		
 		openAndProcessFile();
 		breakUpAssignList();
 

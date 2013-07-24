@@ -6,7 +6,7 @@
  *   QuizApp is free software created by Seidenberg Creative Laboratory 
  *   for non-commercial use.
  *   
- *   Github account ///////
+ *   Github account: https://github.com/MichaelAng/TJHSG
  ************************************************************************/
 
 package com.example.chemistry;

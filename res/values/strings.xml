@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">QuizApp</string>
-    <string name="firstpage">QuizApp</string>
+    <string name="app_name">TJHSG</string>
     <string name="choosetopic">Choose Your Topic</string>
     <string name="choosequestion">Choose Your Question</string>
     <string name="multiplechoice">Multiple Choice</string>

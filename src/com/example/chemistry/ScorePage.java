@@ -6,7 +6,7 @@
  *   QuizApp is free software created by Seidenberg Creative Laboratory 
  *   for non-commercial use.
  *   
- *   Github account ///////
+ *   Github account: https://github.com/MichaelAng/TJHSG
  ************************************************************************/
 
 package com.example.chemistry;
@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
@@ -135,8 +136,12 @@ public class ScorePage extends Activity implements OnClickListener {
 	}
 
 	private class MyListAdapter extends ArrayAdapter<Score> {
+		Typeface font;
+		
+		
 		public MyListAdapter() {
 			super(ScorePage.this, R.layout.item_view, score);
+			font = Typeface.createFromAsset(getAssets(), "starjout.ttf");			
 		}
 
 		@Override
@@ -154,11 +159,13 @@ public class ScorePage extends Activity implements OnClickListener {
 			// Topic
 			TextView topicText = (TextView) itemView
 					.findViewById(R.id.item_topic);
+			topicText.setTypeface(font); 
 			topicText.setText(currentScore.getTopic());
 
 			// Date
 			TextView dateText = (TextView) itemView
 					.findViewById(R.id.item_date);
+			dateText.setTypeface(font); 
 			dateText.setText(currentScore.getDateTime());
 
 			// Score
@@ -167,6 +174,7 @@ public class ScorePage extends Activity implements OnClickListener {
 
 			point = ((double) currentScore.getAmountCorrect() / (double) currentScore
 					.getTotalQuestionAnswered()) * 100;
+			scoreText.setTypeface(font); 
 			scoreText.setText(String.format("%.1f", point) + "%");
 
 			return itemView;
