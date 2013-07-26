@@ -9,7 +9,6 @@
     <string name="action_settings">Settings</string>
     <string name="multiChoice">Multiple Choice mode</string>
     <string name="scoreButton">View Score</string>
-    <string name="copyright">&#169;2013 STEM-SCL</string>
     <string name="submit">Submit Answer</string>
 
 </resources>

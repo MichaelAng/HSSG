@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainPage" >
+    tools:context=".MainPage" 
+    android:background="@drawable/background" >
     <Button
         android:id="@+id/bClearScore"
         android:layout_width="match_parent"
@@ -17,8 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/bClearScore"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtTopic" >
+        android:layout_alignParentLeft="true">
     </ListView>
 
 </RelativeLayout>

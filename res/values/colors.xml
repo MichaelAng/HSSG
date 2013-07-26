@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="aqua">#66CCCC</color>
+    <color name="cyan2">#00EEEE</color>
+    <color name="cyan3">#00CDCD</color>
+    <color name="yellow1">#FFFF99</color>
+    <color name="yellow2">#FFFF66</color>
+    <color name="grey05">#BBBBBB</color>
+    <color name="orange4">#FF9900</color>
+    <color name="orange5">#FFCC33</color>
+    <color name="blue2">#0000FF</color>
+    <color name="blue25">#000077</color>
+    <color name="grey">#c6c6c6</color>
+    
+</resources>

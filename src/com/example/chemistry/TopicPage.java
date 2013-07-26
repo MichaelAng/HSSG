@@ -16,18 +16,28 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class TopicPage extends ListActivity {
@@ -35,7 +45,8 @@ public class TopicPage extends ListActivity {
 	//Prepares a list of Topics each containing a list of Questions
 	List<Topic> topic = new ArrayList<Topic>();
 	List<Question> question = new ArrayList<Question>();
-
+	List<String> name;
+	
 	// For my File code
 	private String FILENAME = "Default.txt";
 	File file = null;
@@ -43,28 +54,50 @@ public class TopicPage extends ListActivity {
 	String state;
 	StringBuilder text;
 	BufferedReader reader;
-	String[] t;
-	
 	Typeface type;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+		name = new ArrayList<String>();
 		type = Typeface.createFromAsset(getAssets(),"starjout.ttf"); 
+		
+		//Sets the Title Bar Font
+	    SpannableString s = new SpannableString("My Title");
+	    s.setSpan(new TypefaceSpan(this, "starjout"), 0, s.length(),
+	            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+	 
+	    // Update the action bar title with the TypefaceSpan instance
+	    ActionBar actionBar = getActionBar();
+	    actionBar.setTitle(s);
 		
 		openAndProcessFile();
 		breakUpAssignList();
-
-		t = new String[topic.size()];
+		
 		for (int i = 0; i < topic.size(); i++) {
-			t[i] = topic.get(i).getQuestion().get(0).getTopic();
+			name.add(topic.get(i).getQuestion().get(0).getTopic());
 		}
+		 ArrayAdapter<String> adapter=new ArrayAdapter<String>(
+		            this,android.R.layout.simple_list_item_1, name){
 
-		setListAdapter(new ArrayAdapter<String>(TopicPage.this,
-				android.R.layout.simple_list_item_1, t));
+		        @Override
+		        public View getView(int position, View convertView,
+		                ViewGroup parent) {
+		            View view =super.getView(position, convertView, parent);
+		            
+		            TextView textView=(TextView) view.findViewById(android.R.id.text1);
+
+		    		textView.setTypeface(type);
+
+		            return view;
+		        }
+		    };
+		        /*SET THE ADAPTER TO LISTVIEW*/
+		        setListAdapter(adapter);
+
 	}
 
+	
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
@@ -136,5 +169,5 @@ public class TopicPage extends ListActivity {
 		backToMA.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(backToMA);
 	}
-
+	
 }

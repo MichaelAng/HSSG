@@ -17,6 +17,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Calendar;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -24,6 +25,8 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -56,18 +59,32 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 	File file = null;
 	File path = null;
 	BufferedReader reader;
+	Typeface type;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.questions_activity);
-
+				
+		type = Typeface.createFromAsset(getAssets(),"starjout.ttf"); 
+		
+		//Sets the Title Bar Font
+	    SpannableString s = new SpannableString("My Title");
+	    s.setSpan(new TypefaceSpan(this, "starjout"), 0, s.length(),
+	            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+	 
+	    // Update the action bar title with the TypefaceSpan instance
+	    ActionBar actionBar = getActionBar();
+	    actionBar.setTitle(s);
+		
 		Bundle b = getIntent().getExtras();
 		topic = (Topic) b.getParcelable("topic");
 		position = b.getInt("questionPosition", 0);
 		topicPosition = b.getInt("topicPosition", 0);
 		initialize();
 		setValueId();
+		setFont();
+		
 	}
 
 	private void initialize() {
@@ -79,7 +96,7 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 		mcGroup = (RadioGroup) findViewById(R.id.rgmultichoice);
 		mcGroup.setOnCheckedChangeListener(this);
 		submit = (Button) findViewById(R.id.bsubmit);
-		submit.setOnClickListener(this);
+		submit.setOnClickListener(this);	
 	}
 
 	// Assigns new Values
@@ -94,7 +111,15 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 		choiceB.setText(topic.getQuestion().get(position).getChoiceB());
 		choiceC.setText(topic.getQuestion().get(position).getChoiceC());
 		choiceD.setText(topic.getQuestion().get(position).getChoiceD());
+	}
 
+	private void setFont() {
+		question.setTypeface(type);
+		choiceA.setTypeface(type);
+		choiceB.setTypeface(type);
+		choiceC.setTypeface(type);
+		choiceD.setTypeface(type);
+		submit.setTypeface(type);
 	}
 
 	// Changes user choice
@@ -114,23 +139,23 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 			selectedAnswer = 3;
 			break;
 		}
-
 	}
 
 	// Handles the selection
 	@Override
 	public void onClick(View arg0) {
 		if (selectedAnswer == 4) {
-			new AlertDialog.Builder(this)
+			AlertDialog dialog = new AlertDialog.Builder(this)
 					.setTitle("You did not make a selection")
 					.setMessage("Please select an option.")
 					.setCancelable(false).setNegativeButton("OK", null).show();
-
+			TextView textView = (TextView) dialog.findViewById(android.R.id.message);		
+			textView.setTypeface(type);
 		} else if (selectedAnswer == Integer.parseInt(answer)) {
 			//function  Answer is correct
 			//Inform user how many they got right
 			
-			new AlertDialog.Builder(this)
+			AlertDialog dialog = new AlertDialog.Builder(this)
 					.setTitle("CORRECT")
 					.setMessage("Your selection was correct!")
 					.setCancelable(false)
@@ -153,8 +178,11 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 
 
 							}).show();
+			TextView textView = (TextView) dialog.findViewById(android.R.id.message);		
+			textView.setTypeface(type);
+			
 		} else {
-			new AlertDialog.Builder(this)
+			AlertDialog dialog = new AlertDialog.Builder(this)
 					.setTitle("Wrong")
 					.setMessage(explanation)
 					.setCancelable(false)
@@ -172,6 +200,8 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 									}
 								}
 							}).show();
+			TextView textView = (TextView) dialog.findViewById(android.R.id.message);		
+			textView.setTypeface(type);
 		}
 	}
 

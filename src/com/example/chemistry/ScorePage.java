@@ -20,10 +20,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.ActionBar;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.Spannable;
+import android.text.SpannableString;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -50,6 +53,15 @@ public class ScorePage extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.points_activity);
 
+		//Sets the Title Bar Font
+	    SpannableString s = new SpannableString("My Title");
+	    s.setSpan(new TypefaceSpan(this, "starjout"), 0, s.length(),
+	            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+	 
+	    // Update the action bar title with the TypefaceSpan instance
+	    ActionBar actionBar = getActionBar();
+	    actionBar.setTitle(s);
+		
 		clearScore = (Button) findViewById(R.id.bClearScore);
 		clearScore.setOnClickListener(this);
 
