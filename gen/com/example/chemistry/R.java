@@ -11,12 +11,18 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int Black=0x7f06000c;
+        public static final int DarkGrey=0x7f06000e;
+        public static final int Green=0x7f06000f;
+        public static final int Grey=0x7f06000d;
+        public static final int TransparentGrey=0x7f060010;
+        public static final int White=0x7f06000b;
         public static final int aqua=0x7f060000;
         public static final int blue2=0x7f060008;
         public static final int blue25=0x7f060009;
         public static final int cyan2=0x7f060001;
         public static final int cyan3=0x7f060002;
-        public static final int grey=0x7f06000a;
+        public static final int gray=0x7f06000a;
         public static final int grey05=0x7f060005;
         public static final int orange4=0x7f060006;
         public static final int orange5=0x7f060007;
@@ -35,7 +41,7 @@ public final class R {
     }
     public static final class drawable {
         public static final int background=0x7f020000;
-        public static final int custom_button=0x7f020001;
+        public static final int container_dropshadow=0x7f020001;
         public static final int graybutton=0x7f020002;
         public static final int ic_launcher=0x7f020003;
         public static final int icon=0x7f020004;
@@ -43,32 +49,40 @@ public final class R {
         public static final int thejesshill=0x7f020006;
     }
     public static final class id {
-        public static final int aboutUs=0x7f0b000f;
-        public static final int bClearScore=0x7f0b0006;
-        public static final int bsubmit=0x7f0b000e;
+        public static final int aboutUs=0x7f0b0014;
+        public static final int bClearScore=0x7f0b0011;
+        public static final int bTakeItTop=0x7f0b0007;
+        public static final int bTakeitTop=0x7f0b0009;
+        public static final int bsubmit=0x7f0b0010;
         public static final int btnMultipleChoice=0x7f0b0001;
         public static final int btnScore=0x7f0b0002;
-        public static final int exit=0x7f0b0011;
+        public static final int exit=0x7f0b0016;
         public static final int item_date=0x7f0b0005;
         public static final int item_score=0x7f0b0004;
         public static final int item_topic=0x7f0b0003;
-        public static final int preferences=0x7f0b0010;
-        public static final int rchoice0=0x7f0b000a;
-        public static final int rchoice1=0x7f0b000b;
-        public static final int rchoice2=0x7f0b000c;
-        public static final int rchoice3=0x7f0b000d;
-        public static final int rgmultichoice=0x7f0b0009;
-        public static final int scoreListView=0x7f0b0007;
+        public static final int item_topic_name=0x7f0b0006;
+        public static final int preferences=0x7f0b0015;
+        public static final int questionListView=0x7f0b0008;
+        public static final int rchoice0=0x7f0b000c;
+        public static final int rchoice1=0x7f0b000d;
+        public static final int rchoice2=0x7f0b000e;
+        public static final int rchoice3=0x7f0b000f;
+        public static final int rgmultichoice=0x7f0b000b;
+        public static final int scoreListView=0x7f0b0012;
         public static final int textView1=0x7f0b0000;
-        public static final int tvquestion=0x7f0b0008;
+        public static final int topicListView=0x7f0b0013;
+        public static final int tvquestion=0x7f0b000a;
     }
     public static final class layout {
         public static final int about_activity=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int item_view=0x7f030002;
-        public static final int points_activity=0x7f030003;
-        public static final int questions_activity=0x7f030004;
-        public static final int splash_activity=0x7f030005;
+        public static final int item_view_topic=0x7f030003;
+        public static final int question_name_activity=0x7f030004;
+        public static final int questions_activity=0x7f030005;
+        public static final int score_activity=0x7f030006;
+        public static final int splash_activity=0x7f030007;
+        public static final int topic_activity=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;

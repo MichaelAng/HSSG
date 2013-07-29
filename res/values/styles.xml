@@ -22,7 +22,7 @@
     </style>
 
     <style name="WindowTitleBackground">
-        <item name="android:background">@color/grey</item>
+        <item name="android:background">@color/gray</item>
     </style>
 
 </resources>

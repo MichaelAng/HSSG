@@ -39,6 +39,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class ScorePage extends Activity implements OnClickListener {
+	//CONSTANTS
+	static String FONT = "starjout.ttf";
+	String TITLEPAGENAME = "Score";
+	
 	private List<Score> score = new ArrayList<Score>();
 	private double point;
 	Button clearScore;
@@ -51,23 +55,24 @@ public class ScorePage extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.points_activity);
-
-		//Sets the Title Bar Font
-	    SpannableString s = new SpannableString("My Title");
-	    s.setSpan(new TypefaceSpan(this, "starjout"), 0, s.length(),
-	            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-	 
-	    // Update the action bar title with the TypefaceSpan instance
-	    ActionBar actionBar = getActionBar();
-	    actionBar.setTitle(s);
+		setContentView(R.layout.score_activity);
 		
+		setTitleBar();
 		clearScore = (Button) findViewById(R.id.bClearScore);
 		clearScore.setOnClickListener(this);
-
 		openFile();
 		populateListView();
 	}
+
+	private void setTitleBar() {// Sets the Title Bar Name and Font
+		SpannableString s = new SpannableString(TITLEPAGENAME);
+		s.setSpan(
+				new TypefaceSpan(this, FONT.substring(0, FONT.lastIndexOf('.'))),
+				0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		// Update the action bar title with the TypefaceSpan instance
+		ActionBar actionBar = getActionBar();
+		actionBar.setTitle(s);
+	}// Ends setTitleBar method
 
 	private void openFile() {
 		if (Environment.getExternalStorageState().equals(

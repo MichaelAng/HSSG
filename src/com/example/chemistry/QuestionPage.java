@@ -7,6 +7,10 @@
  *   for non-commercial use.
  *   
  *   Github account: https://github.com/MichaelAng/TJHSG
+ *   
+ *   Things to add:
+ *   	Take it From the Top mode
+ *   	Exit out to question page if Take it from the top mode is not used
  ************************************************************************/
 package com.example.chemistry;
 

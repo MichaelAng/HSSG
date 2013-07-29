@@ -2,19 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@drawable/background" >
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="10dp" >
 
     <TextView
         android:id="@+id/tvquestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextView" />
+        android:background="@drawable/container_dropshadow"
+        android:paddingBottom="25px"
+        android:paddingLeft="25px"
+        android:paddingRight="25px"
+        android:paddingTop="25px"
+        android:text="TextView"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <RadioGroup
         android:id="@+id/rgmultichoice"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:background="@drawable/container_dropshadow" >
 
         <RadioButton
             android:id="@+id/rchoice0"
@@ -45,6 +53,8 @@
         android:id="@+id/bsubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/graybutton"
         android:text="@string/submit" />
 
 </LinearLayout>

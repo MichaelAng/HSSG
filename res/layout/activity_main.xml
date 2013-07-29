@@ -16,8 +16,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/graybutton"
             android:gravity="center"
-            android:text="@string/multiChoice"
-            android:textAllCaps="true" />
+            android:text="@string/multiChoice" />
 
         <Button
             android:id="@+id/btnScore"
@@ -25,8 +24,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/graybutton"
             android:gravity="center"
-            android:text="@string/scoreButton"
-            android:textAllCaps="true" />
+            android:text="@string/scoreButton" />
     </LinearLayout>
 
 </RelativeLayout>

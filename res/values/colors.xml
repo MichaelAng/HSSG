@@ -10,6 +10,12 @@
     <color name="orange5">#FFCC33</color>
     <color name="blue2">#0000FF</color>
     <color name="blue25">#000077</color>
-    <color name="grey">#c6c6c6</color>
-    
+    <color name="gray">#c6c6c6</color>
+	
+	<color name="White">#FFF</color>
+    <color name="Black">#000</color>
+    <color name="Grey">#7F7F7F</color>
+    <color name="DarkGrey">#4F4F4F</color>
+    <color name="Green">#0F0</color>
+    <color name="TransparentGrey">#7F000000</color>
 </resources>
