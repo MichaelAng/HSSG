@@ -11,6 +11,7 @@ import android.view.Window;
 
 public class SplashPage extends Activity {
 	public MediaPlayer ourSong;
+	boolean tutorial, music, shorterTime; 
 
 	@Override
 	protected void onCreate(Bundle Splash) {
@@ -20,7 +21,9 @@ public class SplashPage extends Activity {
 		ourSong = MediaPlayer.create(this, R.raw.preview);
 		
 		SharedPreferences getPrefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-		boolean music = getPrefs.getBoolean("checkbox", true);
+		music = getPrefs.getBoolean("music", true);
+		tutorial = getPrefs.getBoolean("tutorial", true);
+		shorterTime = getPrefs.getBoolean("short", false);
 		
 		if (music == true)
 			ourSong.start();
@@ -28,11 +31,17 @@ public class SplashPage extends Activity {
 		Thread timer = new Thread() {
 			public void run() {
 				try {
-					sleep(5000);
+					if (shorterTime == true)
+						sleep(1000);
+					else
+						sleep(5000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} finally {
-					startActivity(new Intent(SplashPage.this, MainPage.class));
+					if (tutorial == true)
+						startActivity(new Intent(SplashPage.this, TutorialPage.class));
+					else
+						startActivity(new Intent(SplashPage.this, MainPage.class));
 				}
 			}// End of run
 		};// End of thread

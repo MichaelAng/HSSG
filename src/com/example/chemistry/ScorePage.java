@@ -80,8 +80,12 @@ public class ScorePage extends Activity implements OnClickListener {
 
 			path = Environment
 					.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-			path.mkdirs();
+			if (!path.exists()) {
+				path.mkdirs();
+			}
 			file = new File(path, "score.txt");
+			if (!file.exists() || file.length() == 0)
+				writeScore("Topic@1@1@Date");
 			try {
 				reader = new BufferedReader(new FileReader(file));
 				String line;

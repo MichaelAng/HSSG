@@ -25,6 +25,14 @@
             android:background="@drawable/graybutton"
             android:gravity="center"
             android:text="@string/scoreButton" />
+
+        <Button
+            android:id="@+id/btnFile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/graybutton"
+            android:gravity="center"
+            android:text="File" />
     </LinearLayout>
 
 </RelativeLayout>

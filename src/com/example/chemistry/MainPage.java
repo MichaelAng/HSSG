@@ -29,7 +29,7 @@ public class MainPage extends Activity implements View.OnClickListener {
 	String TITLEPAGENAME = "T.J.H. Study Guide";
 	
 	//Initialize Variables
-	Button btnMultipleChoice, btnScore;
+	Button btnMultipleChoice, btnScore, btnFile;
 	Typeface type;
 
 	@Override
@@ -56,17 +56,20 @@ public class MainPage extends Activity implements View.OnClickListener {
 	private void initialize() {// Initialize buttons
 		btnMultipleChoice = (Button) findViewById(R.id.btnMultipleChoice);
 		btnScore = (Button) findViewById(R.id.btnScore);
+		btnFile = (Button) findViewById(R.id.btnFile);
 	}// Ends initialize method
 
 	private void setButtonFont() {// Sets the Font for the buttons
 		type = Typeface.createFromAsset(getAssets(), FONT);
 		btnScore.setTypeface(type);
 		btnMultipleChoice.setTypeface(type);
+		btnFile.setTypeface(type);
 	}// Ends setButtonFont method
 
 	private void setOnClickListener() {// Sets click Listeners for the buttons
 		btnMultipleChoice.setOnClickListener(this);
 		btnScore.setOnClickListener(this);
+		btnFile.setOnClickListener(this);
 	}// Ends setOnClickListener method
 
 	public void onClick(View v) {// Listens for clicks
@@ -76,6 +79,9 @@ public class MainPage extends Activity implements View.OnClickListener {
 			break;
 		case R.id.btnScore:
 			startActivity(new Intent(this, ScorePage.class));
+			break;
+		case R.id.btnFile:
+			startActivity(new Intent(this, FileChooser.class));
 			break;
 		}// Ends switch cases
 	}// Ends onClick method
@@ -98,8 +104,8 @@ public class MainPage extends Activity implements View.OnClickListener {
 		case R.id.preferences:
 			startActivity(new Intent(this, Prefs.class));
 			break;
-		case R.id.exit:
-			finish();
+		case R.id.tutorial:
+			startActivity(new Intent(this, TutorialPage.class));
 			break;
 		}// Ends switch case
 		return false;

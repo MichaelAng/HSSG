@@ -9,6 +9,6 @@
         android:id="@+id/preferences"
         android:title="Preferences"/>
     <item
-        android:id="@+id/exit"
-        android:title="Exit"/>
+        android:id="@+id/tutorial"
+        android:title="Tutorial"/>
 </menu>

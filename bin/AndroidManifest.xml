@@ -14,10 +14,11 @@
         android:allowBackup="true"
         android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:theme="@style/ThemeSelector">
+        android:theme="@style/ThemeSelector" >
         <activity
             android:name="com.example.chemistry.SplashPage"
             android:label="@string/app_name"
+            android:noHistory="true"
             android:theme="@android:style/Theme.Dialog" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,31 +30,30 @@
             android:name="com.example.chemistry.MainPage"
             android:label="@string/app_name" >
         </activity>
-        <activity
-            android:name="com.example.chemistry.TopicPage"
-            android:label="@string/choosetopic" >
+        <activity android:name="com.example.chemistry.TopicPage" >
         </activity>
-        <activity
-            android:name="com.example.chemistry.QuestionList"
-            android:label="@string/choosequestion" >
+        <activity android:name="com.example.chemistry.QuestionList" >
         </activity>
-        <activity
-            android:name="com.example.chemistry.QuestionPage"
-            android:label="@string/multiplechoice" >
+        <activity android:name="com.example.chemistry.QuestionPage" >
         </activity>
-        <activity
-            android:name="com.example.chemistry.ScorePage"
-            android:label="@string/score" >
+        <activity android:name="com.example.chemistry.ScorePage" >
         </activity>
         <activity
             android:name="com.example.chemistry.AboutPage"
-            android:label="@string/app_name"
             android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.example.chemistry.TutorialPage"
+            android:noHistory="true" >
         </activity>
         <activity
             android:name="com.example.chemistry.Prefs"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Dialog" >
+        </activity>
+        <activity
+            android:name="com.example.chemistry.FileChooser"
+            android:label="@string/app_name" >
         </activity>
     </application>
 

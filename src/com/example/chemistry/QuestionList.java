@@ -33,7 +33,7 @@ import android.widget.TextView;
 public class QuestionList extends Activity implements OnClickListener {
 	// CONSTANTS
 	String FONT = "starjout.ttf";
-	String TITLEPAGENAME = "Select a Question";
+	String TITLEPAGENAME = "Choose Your Question or...";
 
 	Topic topic;
 	String[] questions;
@@ -49,12 +49,12 @@ public class QuestionList extends Activity implements OnClickListener {
 		// type = Typeface.createFromAsset(getAssets(), FONT);
 
 		setTitleBar();
-		takeItTop = (Button) findViewById(R.id.bTakeitTop);
+		takeItTop = (Button) findViewById(R.id.bTakeItTop);
 		takeItTop.setOnClickListener(this);
+		setButtonFont();
 		addTopicToList();
 		populateListView();
 		registerClickCallback();
-		// setListViewFont();
 	}
 
 	private void setTitleBar() {// Sets the Title Bar Name and Font
@@ -66,6 +66,11 @@ public class QuestionList extends Activity implements OnClickListener {
 		ActionBar actionBar = getActionBar();
 		actionBar.setTitle(s);
 	}// Ends setTitleBar method
+	
+	private void setButtonFont() {// Sets the Font for the buttons
+		type = Typeface.createFromAsset(getAssets(), FONT);
+		takeItTop.setTypeface(type);
+	}// Ends setButtonFont method
 
 	private void addTopicToList() {
 		// Gets the extra data from previous activity
@@ -142,13 +147,14 @@ public class QuestionList extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.bClearScore:
+		case R.id.bTakeItTop:
 			Intent intentToOpenQuestionPage = new Intent(QuestionList.this,
 					QuestionPage.class);
 			intentToOpenQuestionPage.putExtra("topic", topic);
 			intentToOpenQuestionPage.putExtra("topicPosition",
 					topicPosition);
 			intentToOpenQuestionPage.putExtra("questionPosition", 0);
+			intentToOpenQuestionPage.putExtra("TakeItTop", true);
 			startActivity(intentToOpenQuestionPage);
 			break;
 		}

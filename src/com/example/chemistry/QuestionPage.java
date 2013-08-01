@@ -56,6 +56,7 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 	RadioGroup mcGroup;
 	int counter = 1;
 	int topicPosition;
+	boolean takeItTop;
 
 	Topic topic;
 	Intent intent;
@@ -64,31 +65,33 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 	File path = null;
 	BufferedReader reader;
 	Typeface type;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.questions_activity);
-				
-		type = Typeface.createFromAsset(getAssets(),"starjout.ttf"); 
-		
-		//Sets the Title Bar Font
-	    SpannableString s = new SpannableString("My Title");
-	    s.setSpan(new TypefaceSpan(this, "starjout"), 0, s.length(),
-	            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-	 
-	    // Update the action bar title with the TypefaceSpan instance
-	    ActionBar actionBar = getActionBar();
-	    actionBar.setTitle(s);
-		
+
+		type = Typeface.createFromAsset(getAssets(), "starjout.ttf");
+
+		// Sets the Title Bar Font
+		SpannableString s = new SpannableString("HSSG");
+		s.setSpan(new TypefaceSpan(this, "starjout"), 0, s.length(),
+				Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+		// Update the action bar title with the TypefaceSpan instance
+		ActionBar actionBar = getActionBar();
+		actionBar.setTitle(s);
+
 		Bundle b = getIntent().getExtras();
 		topic = (Topic) b.getParcelable("topic");
 		position = b.getInt("questionPosition", 0);
 		topicPosition = b.getInt("topicPosition", 0);
+		takeItTop = b.getBoolean("TakeItTop", false);
+
 		initialize();
 		setValueId();
 		setFont();
-		
+
 	}
 
 	private void initialize() {
@@ -100,12 +103,13 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 		mcGroup = (RadioGroup) findViewById(R.id.rgmultichoice);
 		mcGroup.setOnCheckedChangeListener(this);
 		submit = (Button) findViewById(R.id.bsubmit);
-		submit.setOnClickListener(this);	
+		submit.setOnClickListener(this);
 	}
 
 	// Assigns new Values
 	private void setValueId() {
 		mcGroup.clearCheck();
+		selectedAnswer = 4;
 		// Sets up the string names to be fetches
 		question.setText(topic.getQuestion().get(position).getQuestion());
 		answer = topic.getQuestion().get(position).getAnswer();
@@ -153,12 +157,13 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 					.setTitle("You did not make a selection")
 					.setMessage("Please select an option.")
 					.setCancelable(false).setNegativeButton("OK", null).show();
-			TextView textView = (TextView) dialog.findViewById(android.R.id.message);		
+			TextView textView = (TextView) dialog
+					.findViewById(android.R.id.message);
 			textView.setTypeface(type);
 		} else if (selectedAnswer == Integer.parseInt(answer)) {
-			//function  Answer is correct
-			//Inform user how many they got right
-			
+			// function Answer is correct
+			// Inform user how many they got right
+
 			AlertDialog dialog = new AlertDialog.Builder(this)
 					.setTitle("CORRECT")
 					.setMessage("Your selection was correct!")
@@ -168,23 +173,29 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 								public void onClick(DialogInterface x, int y) {
 									position++;
 									topic.incScore();
-									if (position < topic.getQuestion().size()) {
-										setValueId();
+									if (takeItTop) {
+										if (position < topic.getQuestion()
+												.size()) {
+											setValueId();
+										} else {
+
+											recordScore();
+											showScore();
+											startActivity(new Intent(
+													QuestionPage.this,
+													TopicPage.class));
+										}
 									} else {
-										
-										recordScore();
-										showScore();
-										
-										startActivity(new Intent(QuestionPage.this, TopicPage.class));
+										goToQuestionList();
 									}
+
 								}
 
-
-
 							}).show();
-			TextView textView = (TextView) dialog.findViewById(android.R.id.message);		
+			TextView textView = (TextView) dialog
+					.findViewById(android.R.id.message);
 			textView.setTypeface(type);
-			
+
 		} else {
 			AlertDialog dialog = new AlertDialog.Builder(this)
 					.setTitle("Wrong")
@@ -194,41 +205,53 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface x, int y) {
 									position++;
-									if (position < topic.getQuestion().size()) {
-										setValueId();
+									if (takeItTop) {
+										if (position < topic.getQuestion()
+												.size()) {
+											setValueId();
+										} else {
+											recordScore();
+											showScore();
+											startActivity(new Intent(
+													QuestionPage.this,
+													TopicPage.class));
+										}
 									} else {
-										recordScore();									
-										showScore();
-										
-										startActivity(new Intent(QuestionPage.this, TopicPage.class));
+										goToQuestionList();
 									}
 								}
 							}).show();
-			TextView textView = (TextView) dialog.findViewById(android.R.id.message);		
+			TextView textView = (TextView) dialog
+					.findViewById(android.R.id.message);
 			textView.setTypeface(type);
 		}
 	}
 
+	private void goToQuestionList() {
+		Intent intent = new Intent(QuestionPage.this, QuestionList.class);
+		intent.putExtra("topic", topic);
+		intent.putExtra("topicPosition", topicPosition);
+		startActivity(intent);
+	}
+
 	public void recordScore() {
-		String scoreLine = topic.getQuestion()
-				.get(0).getTopic()
-				+ "@"
-				+ topic.getScore()
-				+ "@"
-				+ topic.getQuestion().size();
-		String mydate = java.text.DateFormat
-				.getDateTimeInstance().format(
-						Calendar.getInstance()
-								.getTime());
+		String scoreLine = topic.getQuestion().get(0).getTopic() + "@"
+				+ topic.getScore() + "@" + topic.getQuestion().size();
+		String mydate = java.text.DateFormat.getDateTimeInstance().format(
+				Calendar.getInstance().getTime());
 		writeScore(scoreLine + "@" + mydate);
 	}
-	
+
 	public void showScore() {
+		double point =((double) topic.getScore()/ topic.getQuestion().size() * 100);
 		Toast toast = Toast.makeText(getApplicationContext(),
-				   "You have completed the quiz with a score of " + ((double)topic.getScore()/topic.getQuestion().size() * 100 + "%"), Toast.LENGTH_LONG);
-				toast.setGravity(Gravity.CENTER, 0, 0);
-				toast.show(); 
+				"You have completed the quiz with a score of "
+						+ String.format("%.1f", point) + "%",
+				Toast.LENGTH_LONG);
+		toast.setGravity(Gravity.CENTER, 0, 0);
+		toast.show();
 	}
+
 	public void writeScore(String sBody) {
 
 		try {

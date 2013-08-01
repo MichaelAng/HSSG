@@ -6,8 +6,18 @@
 
     <CheckBoxPreference
         android:defaultValue="true"
-        android:key="checkbox"
+        android:key="tutorial"
+        android:summary="check to turn on Tutorial on Start"
+        android:title="Tutorial on Start" />
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="music"
         android:summary="check to turn on Splash Screen Music"
         android:title="Splash Screen Music" />
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="short"
+        android:summary="check to turn on shorter Splash Screen Time"
+        android:title="Shorter Splash Screen Time" />
 
 </PreferenceScreen>

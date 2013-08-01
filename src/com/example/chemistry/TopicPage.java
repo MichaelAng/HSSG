@@ -1,9 +1,9 @@
 /************************************************************************
  *   Copyright 2013 Derek Li, Michael Ang
  *
- *   This file is part of The Jesse Hill Study Guide (TJHSG).
+ *   This file is part of High School Study Guide (HSSG).
  *
- *   QuizApp is free software created by Seidenberg Creative Laboratory 
+ *   HSSG is free software created by Seidenberg Creative Laboratory 
  *   for non-commercial use.
  *   
  *   Github account: https://github.com/MichaelAng/TJHSG
@@ -12,17 +12,22 @@
 package com.example.chemistry;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.util.Log;
@@ -39,7 +44,7 @@ public class TopicPage extends Activity {
 	// CONSTANTS
 	String FONT = "starjout.ttf";
 	String TITLEPAGENAME = "Select a Topic";
-	private String FILENAME = "Default.txt";
+	private String fileName;
 
 	// Prepares a list of Topics each containing a list of Questions
 	List<Topic> topic = new ArrayList<Topic>();
@@ -49,24 +54,58 @@ public class TopicPage extends Activity {
 	// For my File code
 	File file = null;
 	File path = null;
+	File defaultFile = null;
 	String state;
 	StringBuilder text;
 	BufferedReader reader;
 	Typeface type;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.topic_activity);
-		// type = Typeface.createFromAsset(getAssets(), MainPage.FONT);
 
 		setTitleBar();
-		openAndProcessFile();
-		breakUpAssignList();
-		addTopicToList();
-		populateListView();
-		registerClickCallback();
-		// setListViewFont();
+		try {
+			openAndProcessFile();
+			breakUpAssignList();
+			addTopicToList();
+			populateListView();
+			registerClickCallback();
+		} catch (Exception e) {
+			Toast toast = Toast.makeText(getApplicationContext(),
+					"Corrupt File. use Default.txt or Download a correct file.",
+					Toast.LENGTH_LONG);
+			toast.setGravity(Gravity.CENTER | Gravity.CENTER_HORIZONTAL, 0, 0);
+			toast.show();
+		}
+	}
+
+
+
+
+	public void writeFile(String sBody) {
+
+		try {
+			File root = new File(Environment.getExternalStorageDirectory(),
+					"Download");
+
+			if (!root.exists()) {
+				root.mkdirs();
+			}
+
+			File gpxfile = new File(root, "Default.txt");
+
+			BufferedWriter bW = new BufferedWriter(new FileWriter(gpxfile,
+					false));
+			bW.write(sBody);
+			bW.newLine();
+			bW.flush();
+			bW.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void setTitleBar() {// Sets the Title Bar Name and Font
@@ -83,11 +122,23 @@ public class TopicPage extends Activity {
 	private void openAndProcessFile() {
 		if (Environment.getExternalStorageState().equals(
 				Environment.MEDIA_MOUNTED)) {
-
+			
 			path = Environment
 					.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-			path.mkdirs();
-			file = new File(path, FILENAME);
+			if (!path.exists()) {
+				path.mkdirs();
+			}
+			defaultFile = new File(path, "Default.txt");
+			
+			if (!defaultFile.exists() || defaultFile.length() == 0)
+				writeFile(getResources().getString(R.string.defaultText));	
+			
+			SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
+			fileName= preferences.getString("fileName", Environment
+					.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString() + "/Default.txt");	
+			
+			file = new File(fileName); 
+
 			try {
 				reader = new BufferedReader(new FileReader(file));
 				String line;

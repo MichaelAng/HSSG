@@ -49,40 +49,46 @@ public final class R {
         public static final int thejesshill=0x7f020006;
     }
     public static final class id {
-        public static final int aboutUs=0x7f0b0014;
-        public static final int bClearScore=0x7f0b0011;
-        public static final int bTakeItTop=0x7f0b0007;
-        public static final int bTakeitTop=0x7f0b0009;
-        public static final int bsubmit=0x7f0b0010;
+        public static final int TextView01=0x7f0b0004;
+        public static final int TextView02=0x7f0b0005;
+        public static final int aboutUs=0x7f0b0018;
+        public static final int bClearScore=0x7f0b0013;
+        public static final int bOK=0x7f0b0016;
+        public static final int bTakeItTop=0x7f0b000a;
+        public static final int bsubmit=0x7f0b0012;
+        public static final int btnFile=0x7f0b0003;
         public static final int btnMultipleChoice=0x7f0b0001;
         public static final int btnScore=0x7f0b0002;
-        public static final int exit=0x7f0b0016;
-        public static final int item_date=0x7f0b0005;
-        public static final int item_score=0x7f0b0004;
-        public static final int item_topic=0x7f0b0003;
-        public static final int item_topic_name=0x7f0b0006;
-        public static final int preferences=0x7f0b0015;
-        public static final int questionListView=0x7f0b0008;
-        public static final int rchoice0=0x7f0b000c;
-        public static final int rchoice1=0x7f0b000d;
-        public static final int rchoice2=0x7f0b000e;
-        public static final int rchoice3=0x7f0b000f;
-        public static final int rgmultichoice=0x7f0b000b;
-        public static final int scoreListView=0x7f0b0012;
+        public static final int item_date=0x7f0b0008;
+        public static final int item_score=0x7f0b0007;
+        public static final int item_topic=0x7f0b0006;
+        public static final int item_topic_name=0x7f0b0009;
+        public static final int preferences=0x7f0b0019;
+        public static final int questionListView=0x7f0b000b;
+        public static final int rchoice0=0x7f0b000e;
+        public static final int rchoice1=0x7f0b000f;
+        public static final int rchoice2=0x7f0b0010;
+        public static final int rchoice3=0x7f0b0011;
+        public static final int rgmultichoice=0x7f0b000d;
+        public static final int scoreListView=0x7f0b0014;
         public static final int textView1=0x7f0b0000;
-        public static final int topicListView=0x7f0b0013;
-        public static final int tvquestion=0x7f0b000a;
+        public static final int topicListView=0x7f0b0015;
+        public static final int tutorial=0x7f0b001a;
+        public static final int tvText=0x7f0b0017;
+        public static final int tvquestion=0x7f0b000c;
     }
     public static final class layout {
         public static final int about_activity=0x7f030000;
         public static final int activity_main=0x7f030001;
-        public static final int item_view=0x7f030002;
-        public static final int item_view_topic=0x7f030003;
-        public static final int question_name_activity=0x7f030004;
-        public static final int questions_activity=0x7f030005;
-        public static final int score_activity=0x7f030006;
-        public static final int splash_activity=0x7f030007;
-        public static final int topic_activity=0x7f030008;
+        public static final int file_view=0x7f030002;
+        public static final int item_view=0x7f030003;
+        public static final int item_view_topic=0x7f030004;
+        public static final int question_name_activity=0x7f030005;
+        public static final int questions_activity=0x7f030006;
+        public static final int score_activity=0x7f030007;
+        public static final int splash_activity=0x7f030008;
+        public static final int topic_activity=0x7f030009;
+        public static final int tutorial_activity=0x7f03000a;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
@@ -91,15 +97,16 @@ public final class R {
         public static final int preview=0x7f050000;
     }
     public static final class string {
-        public static final int action_settings=0x7f080005;
+        public static final int about=0x7f080008;
+        public static final int action_settings=0x7f080003;
         public static final int app_name=0x7f080000;
-        public static final int choosequestion=0x7f080002;
-        public static final int choosetopic=0x7f080001;
-        public static final int multiChoice=0x7f080006;
-        public static final int multiplechoice=0x7f080003;
-        public static final int score=0x7f080004;
-        public static final int scoreButton=0x7f080007;
-        public static final int submit=0x7f080008;
+        public static final int defaultText=0x7f080009;
+        public static final int multiChoice=0x7f080004;
+        public static final int multiplechoice=0x7f080001;
+        public static final int score=0x7f080002;
+        public static final int scoreButton=0x7f080005;
+        public static final int submit=0x7f080006;
+        public static final int tutorial=0x7f080007;
     }
     public static final class style {
         public static final int ActionBar=0x7f090004;

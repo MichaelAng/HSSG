@@ -12,14 +12,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:background="@drawable/graybutton"
-        android:text="Take it from the top" />
+        android:text="Go through it all" />
 
     <ListView
         android:id="@+id/questionListView"
-        android:layout_below="@+id/bTakeitTop"
+        android:layout_below="@+id/bTakeItTop"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentLeft="true" >
     </ListView>
-
+    
 </RelativeLayout>
