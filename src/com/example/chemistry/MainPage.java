@@ -21,12 +21,13 @@ import android.text.SpannableString;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 
 public class MainPage extends Activity implements View.OnClickListener {
 	//CONSTANTS
 	static String FONT = "starjout.ttf";
-	String TITLEPAGENAME = "T.J.H. Study Guide";
+	String TITLEPAGENAME = "High School Study Guide";
 	
 	//Initialize Variables
 	Button btnMultipleChoice, btnScore, btnFile;
@@ -35,23 +36,13 @@ public class MainPage extends Activity implements View.OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main);
 
-		setTitleBar();
 		initialize();
 		setButtonFont();
 		setOnClickListener();
 	}//Ends onCreate
-
-	private void setTitleBar() {// Sets the Title Bar Name and Font
-		SpannableString s = new SpannableString(TITLEPAGENAME);
-		s.setSpan(
-				new TypefaceSpan(this, FONT.substring(0, FONT.lastIndexOf('.'))),
-				0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-		// Update the action bar title with the TypefaceSpan instance
-		ActionBar actionBar = getActionBar();
-		actionBar.setTitle(s);
-	}// Ends setTitleBar method
 
 	private void initialize() {// Initialize buttons
 		btnMultipleChoice = (Button) findViewById(R.id.btnMultipleChoice);

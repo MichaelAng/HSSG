@@ -21,7 +21,7 @@
         android:layout_height="fill_parent"
         android:layout_above="@+id/bOK"
         android:layout_alignParentLeft="true"
-        android:background="@color/aqua"
+        android:background="@color/TransparentGrey"
         android:text="@string/tutorial"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 

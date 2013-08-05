@@ -33,7 +33,7 @@ import android.widget.TextView;
 public class QuestionList extends Activity implements OnClickListener {
 	// CONSTANTS
 	String FONT = "starjout.ttf";
-	String TITLEPAGENAME = "Choose Your Question or...";
+	String TITLEPAGENAME = "Choose Your Question";
 
 	Topic topic;
 	String[] questions;

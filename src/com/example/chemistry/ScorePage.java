@@ -30,6 +30,7 @@ import android.text.SpannableString;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -55,24 +56,14 @@ public class ScorePage extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.score_activity);
 		
-		setTitleBar();
 		clearScore = (Button) findViewById(R.id.bClearScore);
 		clearScore.setOnClickListener(this);
 		openFile();
 		populateListView();
 	}
-
-	private void setTitleBar() {// Sets the Title Bar Name and Font
-		SpannableString s = new SpannableString(TITLEPAGENAME);
-		s.setSpan(
-				new TypefaceSpan(this, FONT.substring(0, FONT.lastIndexOf('.'))),
-				0, s.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-		// Update the action bar title with the TypefaceSpan instance
-		ActionBar actionBar = getActionBar();
-		actionBar.setTitle(s);
-	}// Ends setTitleBar method
 
 	private void openFile() {
 		if (Environment.getExternalStorageState().equals(
@@ -161,7 +152,7 @@ public class ScorePage extends Activity implements OnClickListener {
 		
 		
 		public MyListAdapter() {
-			super(ScorePage.this, R.layout.item_view, score);
+			super(ScorePage.this, R.layout.item_view_score, score);
 			font = Typeface.createFromAsset(getAssets(), "starjout.ttf");			
 		}
 
@@ -171,7 +162,7 @@ public class ScorePage extends Activity implements OnClickListener {
 			// Makes sure we have a view to work with (may have been given null)
 			View itemView = convertView;
 			if (itemView == null) {
-				itemView = getLayoutInflater().inflate(R.layout.item_view,
+				itemView = getLayoutInflater().inflate(R.layout.item_view_score,
 						parent, false);
 			}
 			// Find the car to work with

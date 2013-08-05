@@ -2,13 +2,11 @@
 <resources>
 
     <string name="app_name">HSSG</string>
-
-    <string name="multiplechoice">Multiple Choice</string>
-    <string name="score">Score By Topic</string>
-    <string name="action_settings">Settings</string>
     <string name="multiChoice">Multiple Choice Mode</string>
     <string name="scoreButton">View Score</string>
-    <string name="submit">Submit Answer</string>
+    <string name="fileButton">Select a File</string>
+    <string name="preference">Select your preferences</string>
+    <string name="submit">Submit</string>
     <string name="tutorial">This application</string>
     <string name="about">Programmers/Developer: Michael Ang and Derek Li\nDesigner: Jane Rabinovich\nWelcome to the High School Study Guide (HSSG). The HSSG is free software created by Seidenberg Creative Laboratory for non-commercial use.</string>
     <string name="defaultText">table@Question 1@What is H in the Periodic Table?@3@H is the symbol for Hydrogen.@A.	Helium@B.	Nitrogen@C.	Hassium@D.	Hydrogen\ntable@Question 2@What is Ti in the Periodic Table?@0@Titanium has the symbol Ti in the Periodic Table.@A.	Titanium@B.	Thallium@C.	Bromine@D.	Lithium\ntable@Question 3@H2O is made up of which two elements?@2@Two Hydrogen atoms and one Oxygen atom makes up water.@A.	Helium and Hydrogen@B.	Oxygen and Helium@C.	Hydrogen and Oxygen@D.	Helium and Carbon\ntable@Question 4@Which element is used to make gunpowder?@2@Sulfur is highly flammable but also in solid state.@A.	Carbon@B.	Magnesium@C.	Sulfur@D.	Lithium\ntable@Question 5@Which symbol is used to denote gold?@2@Au is used to denote gold.@A.	Go@B.	Gd@C.	Au@D.	Ag\ntable@Question 6@Salt is made up of which element?@1@Sodium is Na, which is part of salt. The other part is Chlorine. NaCl.@A.	Carbon@B.	Sodium@C.	Fluorine@D.	Boron\ntable@Question 7@Which gas makes balloons rise?@3@Helium is used in all balloons because of its low atomic weight.@A.	Oxygen@B.	Hydrogen@C.	Nitrogen@D.	Helium</string>

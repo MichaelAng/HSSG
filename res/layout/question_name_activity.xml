@@ -16,10 +16,12 @@
 
     <ListView
         android:id="@+id/questionListView"
-        android:layout_below="@+id/bTakeItTop"
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
-        android:layout_alignParentLeft="true" >
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/bTakeItTop"
+        tools:listitem="@layout/item_view_topic" >
+
     </ListView>
     
 </RelativeLayout>

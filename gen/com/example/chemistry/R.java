@@ -59,8 +59,8 @@ public final class R {
         public static final int btnFile=0x7f0b0003;
         public static final int btnMultipleChoice=0x7f0b0001;
         public static final int btnScore=0x7f0b0002;
-        public static final int item_date=0x7f0b0008;
-        public static final int item_score=0x7f0b0007;
+        public static final int item_date=0x7f0b0007;
+        public static final int item_score=0x7f0b0008;
         public static final int item_topic=0x7f0b0006;
         public static final int item_topic_name=0x7f0b0009;
         public static final int preferences=0x7f0b0019;
@@ -81,7 +81,7 @@ public final class R {
         public static final int about_activity=0x7f030000;
         public static final int activity_main=0x7f030001;
         public static final int file_view=0x7f030002;
-        public static final int item_view=0x7f030003;
+        public static final int item_view_score=0x7f030003;
         public static final int item_view_topic=0x7f030004;
         public static final int question_name_activity=0x7f030005;
         public static final int questions_activity=0x7f030006;
@@ -97,16 +97,15 @@ public final class R {
         public static final int preview=0x7f050000;
     }
     public static final class string {
-        public static final int about=0x7f080008;
-        public static final int action_settings=0x7f080003;
+        public static final int about=0x7f080007;
         public static final int app_name=0x7f080000;
-        public static final int defaultText=0x7f080009;
-        public static final int multiChoice=0x7f080004;
-        public static final int multiplechoice=0x7f080001;
-        public static final int score=0x7f080002;
-        public static final int scoreButton=0x7f080005;
-        public static final int submit=0x7f080006;
-        public static final int tutorial=0x7f080007;
+        public static final int defaultText=0x7f080008;
+        public static final int fileButton=0x7f080003;
+        public static final int multiChoice=0x7f080001;
+        public static final int preference=0x7f080004;
+        public static final int scoreButton=0x7f080002;
+        public static final int submit=0x7f080005;
+        public static final int tutorial=0x7f080006;
     }
     public static final class style {
         public static final int ActionBar=0x7f090004;

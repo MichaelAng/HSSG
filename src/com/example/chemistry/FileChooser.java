@@ -86,4 +86,11 @@ public class FileChooser extends ListActivity {
 		toast.show();
     	startActivity(new Intent(this, MainPage.class));
     }
+    
+	@Override
+	public void onBackPressed() {// Restatcks the return function
+		Intent backToMA = new Intent(this, MainPage.class);
+		backToMA.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(backToMA);
+	}// Ends onBackPressed method
 }

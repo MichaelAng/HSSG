@@ -43,7 +43,7 @@ import android.widget.Toast;
 public class TopicPage extends Activity {
 	// CONSTANTS
 	String FONT = "starjout.ttf";
-	String TITLEPAGENAME = "Select a Topic";
+	String TITLEPAGENAME = "Select a Topic Below";
 	private String fileName;
 
 	// Prepares a list of Topics each containing a list of Questions

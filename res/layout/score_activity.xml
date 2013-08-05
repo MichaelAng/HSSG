@@ -20,7 +20,9 @@
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
         android:layout_above="@+id/bClearScore"
-        android:layout_alignParentLeft="true" >
+        android:layout_alignParentLeft="true"
+        tools:listitem="@layout/item_view_score" >
+
     </ListView>
 
 </RelativeLayout>

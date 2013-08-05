@@ -21,20 +21,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Calendar;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -54,7 +52,6 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 			explanationId, explanation, answer;
 	RadioButton choiceA, choiceB, choiceC, choiceD;
 	RadioGroup mcGroup;
-	int counter = 1;
 	int topicPosition;
 	boolean takeItTop;
 
@@ -67,34 +64,89 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 	Typeface type;
 
 	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+
+		super.onConfigurationChanged(newConfig);
+
+		if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+			setContentView(R.layout.questions_activity);
+			initialize();
+			question.setText(topic.getQuestion().get(position).getQuestion());
+			answer = topic.getQuestion().get(position).getAnswer();
+			explanation = topic.getQuestion().get(position).getExplanation();
+
+			choiceA.setText(topic.getQuestion().get(position).getChoiceA());
+			choiceB.setText(topic.getQuestion().get(position).getChoiceB());
+			choiceC.setText(topic.getQuestion().get(position).getChoiceC());
+			choiceD.setText(topic.getQuestion().get(position).getChoiceD());
+			switch (selectedAnswer) {
+			case 0:
+				choiceA.setChecked(true);
+				break;
+			case 1:
+				choiceB.setChecked(true);
+				break;
+			case 2:
+				choiceC.setChecked(true);
+				break;
+			case 3:
+				choiceD.setChecked(true);
+				break;
+			case 4:
+				break;
+			}
+			setFont();
+		} else if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+			setContentView(R.layout.questions_activity);
+			initialize();
+			question.setText(topic.getQuestion().get(position).getQuestion());
+			answer = topic.getQuestion().get(position).getAnswer();
+			explanation = topic.getQuestion().get(position).getExplanation();
+
+			choiceA.setText(topic.getQuestion().get(position).getChoiceA());
+			choiceB.setText(topic.getQuestion().get(position).getChoiceB());
+			choiceC.setText(topic.getQuestion().get(position).getChoiceC());
+			choiceD.setText(topic.getQuestion().get(position).getChoiceD());
+			switch (selectedAnswer) {
+			case 0:
+				choiceA.setChecked(true);
+				break;
+			case 1:
+				choiceB.setChecked(true);
+				break;
+			case 2:
+				choiceC.setChecked(true);
+				break;
+			case 3:
+				choiceD.setChecked(true);
+				break;
+			case 4:
+				break;
+			}
+			setFont();
+		}
+	}
+
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.questions_activity);
 
 		type = Typeface.createFromAsset(getAssets(), "starjout.ttf");
-
-		// Sets the Title Bar Font
-		SpannableString s = new SpannableString("HSSG");
-		s.setSpan(new TypefaceSpan(this, "starjout"), 0, s.length(),
-				Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-		// Update the action bar title with the TypefaceSpan instance
-		ActionBar actionBar = getActionBar();
-		actionBar.setTitle(s);
 
 		Bundle b = getIntent().getExtras();
 		topic = (Topic) b.getParcelable("topic");
 		position = b.getInt("questionPosition", 0);
 		topicPosition = b.getInt("topicPosition", 0);
 		takeItTop = b.getBoolean("TakeItTop", false);
-
+		topic.setScore(0);
 		initialize();
 		setValueId();
 		setFont();
-
 	}
 
-	private void initialize() {
+	private void initialize() {		
 		question = (TextView) findViewById(R.id.tvquestion);
 		choiceA = (RadioButton) findViewById(R.id.rchoice0);
 		choiceB = (RadioButton) findViewById(R.id.rchoice1);
@@ -105,7 +157,6 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 		submit = (Button) findViewById(R.id.bsubmit);
 		submit.setOnClickListener(this);
 	}
-
 	// Assigns new Values
 	private void setValueId() {
 		mcGroup.clearCheck();
@@ -243,11 +294,13 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 	}
 
 	public void showScore() {
-		double point =((double) topic.getScore()/ topic.getQuestion().size() * 100);
-		Toast toast = Toast.makeText(getApplicationContext(),
-				"You have completed the quiz with a score of "
-						+ String.format("%.1f", point) + "%",
-				Toast.LENGTH_LONG);
+		double point = ((double) topic.getScore() / topic.getQuestion().size() * 100);
+		Toast toast = Toast
+				.makeText(
+						getApplicationContext(),
+						"You have completed the quiz with a score of "
+								+ String.format("%.1f", point) + "%",
+						Toast.LENGTH_LONG);
 		toast.setGravity(Gravity.CENTER, 0, 0);
 		toast.show();
 	}
@@ -282,4 +335,5 @@ public class QuestionPage extends Activity implements OnCheckedChangeListener,
 		backToMA.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		startActivity(backToMA);
 	}
+
 }
