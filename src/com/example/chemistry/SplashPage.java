@@ -1,3 +1,14 @@
+/************************************************************************
+ *   Copyright 2013 Derek Li, Michael Ang
+ *
+ *   This file is part of The High School Study Guide (HSSG).
+ *
+ *   HSSG is free software created by Seidenberg Creative Laboratory 
+ *   for non-commercial use.
+ *   
+ *   Github account: https://github.com/MichaelAng/HSSG
+ ************************************************************************/
+
 package com.example.chemistry;
 
 import android.app.Activity;
@@ -6,7 +17,6 @@ import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.view.ViewGroup.LayoutParams;
 import android.view.Window;
 
 public class SplashPage extends Activity {

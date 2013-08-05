@@ -1,12 +1,12 @@
 /************************************************************************
  *   Copyright 2013 Derek Li, Michael Ang
  *
- *   This file is part of The Jesse Hill Study Guide (TJHSG).
+ *   This file is part of The High School Study Guide (HSSG).
  *
- *   QuizApp is free software created by Seidenberg Creative Laboratory 
+ *   HSSG is free software created by Seidenberg Creative Laboratory 
  *   for non-commercial use.
  *   
- *   Github account: https://github.com/MichaelAng/TJHSG
+ *   Github account: https://github.com/MichaelAng/HSSG
  ************************************************************************/
 
 package com.example.chemistry;
@@ -20,13 +20,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Environment;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;

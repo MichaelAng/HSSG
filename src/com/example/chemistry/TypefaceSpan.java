@@ -1,14 +1,4 @@
-package com.example.chemistry;
-
-import android.content.Context;
-import android.graphics.Paint;
-import android.graphics.Typeface;
-import android.text.Spannable;
-import android.text.TextPaint;
-import android.text.style.MetricAffectingSpan;
-import android.util.LruCache;
-
-/*
+/************************************************************************
  * Copyright 2013 Simple Finance Corporation. All rights reserved.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,48 +12,71 @@ import android.util.LruCache;
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
- 
-/**
+ *   
+ *   Modified 2013 Derek Li, Michael Ang
+ *
+ *   This file is part of The High School Study Guide (HSSG).
+ *
+ *   HSSG is free software created by Seidenberg Creative Laboratory 
+ *   for non-commercial use.
+ *   
+ *   Github account: https://github.com/MichaelAng/HSSG
+ *************************************************************************/
+
+package com.example.chemistry;
+
+import android.content.Context;
+import android.graphics.Paint;
+import android.graphics.Typeface;
+import android.text.Spannable;
+import android.text.TextPaint;
+import android.text.style.MetricAffectingSpan;
+import android.util.LruCache;
+
+/*
+
+
+ /**
  * Style a {@link Spannable} with a custom {@link Typeface}.
  * 
  * @author Tristan Waddington
  */
 public class TypefaceSpan extends MetricAffectingSpan {
-      /** An <code>LruCache</code> for previously loaded typefaces. */
-    private static LruCache<String, Typeface> sTypefaceCache =
-            new LruCache<String, Typeface>(12);
- 
-    private Typeface mTypeface;
- 
-    /**
-     * Load the {@link Typeface} and apply to a {@link Spannable}.
-     */
-    public TypefaceSpan(Context context, String typefaceName) {
-        mTypeface = sTypefaceCache.get(typefaceName);
- 
-        if (mTypeface == null) {
-            mTypeface = Typeface.createFromAsset(context.getApplicationContext()
-                    .getAssets(), String.format("%s.ttf", typefaceName));
- 
-            // Cache the loaded Typeface
-            sTypefaceCache.put(typefaceName, mTypeface);
-        }
-    }
- 
-    @Override
-    public void updateMeasureState(TextPaint p) {
-        p.setTypeface(mTypeface);
-        
-        // Note: This flag is required for proper typeface rendering
-        p.setFlags(p.getFlags() | Paint.SUBPIXEL_TEXT_FLAG);
-    }
- 
-    @Override
-    public void updateDrawState(TextPaint tp) {
-        tp.setTypeface(mTypeface);
-        
-        // Note: This flag is required for proper typeface rendering
-        tp.setFlags(tp.getFlags() | Paint.SUBPIXEL_TEXT_FLAG);
-    }
+	/** An <code>LruCache</code> for previously loaded typefaces. */
+	private static LruCache<String, Typeface> sTypefaceCache = new LruCache<String, Typeface>(
+			12);
+
+	private Typeface mTypeface;
+
+	/**
+	 * Load the {@link Typeface} and apply to a {@link Spannable}.
+	 */
+	public TypefaceSpan(Context context, String typefaceName) {
+		mTypeface = sTypefaceCache.get(typefaceName);
+
+		if (mTypeface == null) {
+			mTypeface = Typeface.createFromAsset(context
+					.getApplicationContext().getAssets(), String.format(
+					"%s.ttf", typefaceName));
+
+			// Cache the loaded Typeface
+			sTypefaceCache.put(typefaceName, mTypeface);
+		}
+	}
+
+	@Override
+	public void updateMeasureState(TextPaint p) {
+		p.setTypeface(mTypeface);
+
+		// Note: This flag is required for proper typeface rendering
+		p.setFlags(p.getFlags() | Paint.SUBPIXEL_TEXT_FLAG);
+	}
+
+	@Override
+	public void updateDrawState(TextPaint tp) {
+		tp.setTypeface(mTypeface);
+
+		// Note: This flag is required for proper typeface rendering
+		tp.setFlags(tp.getFlags() | Paint.SUBPIXEL_TEXT_FLAG);
+	}
 }

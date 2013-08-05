@@ -1,3 +1,14 @@
+/************************************************************************
+ *   Copyright 2013 Derek Li, Michael Ang
+ *
+ *   This file is part of The High School Study Guide (HSSG).
+ *
+ *   HSSG is free software created by Seidenberg Creative Laboratory 
+ *   for non-commercial use.
+ *   
+ *   Github account: https://github.com/MichaelAng/HSSG
+ ************************************************************************/
+
 package com.example.chemistry;
 
 import java.io.File;
@@ -19,7 +30,6 @@ public class FileChooser extends ListActivity {
     
     private File currentDir;
     private FileArrayAdapter adapter;
-    private static final String FTYPE = ".txt"; 
     SharedPreferences someData;
     @Override
     public void onCreate(Bundle savedInstanceState) {

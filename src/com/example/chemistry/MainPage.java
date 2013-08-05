@@ -1,12 +1,12 @@
 /************************************************************************
  *   Copyright 2013 Derek Li, Michael Ang
  *
- *   This file is part of The Jesse Hill Study Guide (TJHSG).
+ *   This file is part of The High School Study Guide (HSSG).
  *
- *   QuizApp is free software created by Seidenberg Creative Laboratory 
+ *   HSSG is free software created by Seidenberg Creative Laboratory 
  *   for non-commercial use.
  *   
- *   Github account: https://github.com/MichaelAng/TJHSG
+ *   Github account: https://github.com/MichaelAng/HSSG
  ************************************************************************/
 
 package com.example.chemistry;
