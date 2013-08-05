@@ -11,13 +11,11 @@
 
 package com.example.chemistry;
 
-import android.app.ActionBar;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -27,7 +25,6 @@ import android.widget.Button;
 public class MainPage extends Activity implements View.OnClickListener {
 	//CONSTANTS
 	static String FONT = "starjout.ttf";
-	String TITLEPAGENAME = "High School Study Guide";
 	
 	//Initialize Variables
 	Button btnMultipleChoice, btnScore, btnFile;
